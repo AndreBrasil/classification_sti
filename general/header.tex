@@ -1,0 +1,239 @@
+% Header
+\RequirePackage[2020-02-02]{latexrelease} 
+\usepackage[utf8]{inputenc} % Document encoding
+%\usepackage[lmargin=3cm,
+%            tmargin=3cm,
+%            rmargin=2cm,
+%            bmargin=2cm,
+%            heightrounded]{geometry} % Interface to define page dimensions
+\usepackage[onehalfspacing]{setspace} % Set spacing between lines.
+\usepackage[T1]{fontenc} % Advanced encoding for the document.
+
+
+% Typography
+\usepackage[british]{babel} % Manages typographical rules.
+\usepackage[activate={true,nocompatibility}, % activate protrusion and expansion
+            final, % enable microtype; use "draft" to disable
+            tracking=true, kerning=true, spacing=true,
+            factor=1100, % add 10% to the protrusion amount (default is 1000)
+            stretch=10, shrink=10 % reduce stretchability/shrinkability (default is 20/20)
+            ]{microtype}
+
+
+% Essentials
+\usepackage{authblk} % Support for footnote style author/affiliation.
+\usepackage{caption} % Customise the captions in floating.
+\usepackage{enumerate} % Add styles to enumerate.
+%\usepackage[acronym]{glossaries} % Add glossaries
+\usepackage{graphicx} % LaTeX 'required' set of packages for images.
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{indentfirst} % Indent first paragraph after section header. 
+\usepackage[super]{nth}  % create superscripts with \nth{1}
+\usepackage{latexsym} % LaTeX symbol font
+\usepackage{lineno} % Add \linenumbers (whole doc) or begin/end{linenumbers}.
+\usepackage{subcaption} % Includes more than one image in the same figure
+\usepackage[normalem]{ulem} % \ul command which will break over line ends.
+    \useunder{\uline}{\ul}{}
+\usepackage{verbatim} % Show LaTeX commands and comments (begin/end{comment}).
+\usepackage{xcolor} % comes with standard colors and rgb, cmyk, hsb
+\usepackage{paralist} % creates inline lists 
+\usepackage[all]{nowidow} % prevents orphan lines
+
+% Lists
+\newenvironment{my_list}%
+	{\renewcommand{\theenumi}{\roman{enumi}}%
+	 \renewcommand{\labelenumi}{\theenumi)}
+	 \begin{enumerate}%
+		\setlength{\itemsep}{1pt}%
+		\setlength{\parskip}{0pt}%
+		\setlength{\parsep}{0pt}%
+	}%
+	{\end{enumerate}}
+
+%% Add line numbers. 
+%% Start with \begin{linenumbers}, end with
+%% \end{linenumbers}, for the whole article with \linenumbers
+%% after \end{frontmatter}.
+\usepackage{lineno}
+
+% Math
+\usepackage{amsmath,amsthm,amsfonts,amssymb,dsfont,mathtools,blindtext,xfrac}
+
+% Table
+% Generate on https://www.tablesgenerator.com/latex_tables
+\usepackage{array} % Array configuration (ex. whole column in bold).
+\usepackage{booktabs} % Tables look better with this package.
+\usepackage{float} % Introduces boxed, ruled and  plaintop floats.
+\usepackage{longtable} % Tables spanning multiple pages.
+\usepackage{makecell} % Create multi-lined tabular cells.
+\usepackage{multicol} % Tabular cells with multiple columns.
+\usepackage{multirow} % Tabular cells with multiple rows.
+\usepackage{threeparttable} % Facilitates tables with titles and notes.
+
+\usepackage{tabulary}
+\usepackage{lscape}
+\usepackage{xltabular}
+\usepackage{enumitem}       % for nice list
+\newlist{tabitemize}{itemize}{1}% <-- defined new list
+\setlist[tabitemize]{nosep,     % <-- new list setup
+                     topsep     = 0pt       ,
+                     partopsep  = 0pt       ,
+                     leftmargin = 0pt       ,
+                     itemsep = 7pt  ,
+                     label      =  ,
+                     before     = \vspace{-\baselineskip},
+                     after      = \vspace{-\baselineskip}
+                     }
+
+%\newcolumntype{L}{>{\RaggedRight}X}
+%\newcolumntype{L}{>{\raggedright\arraybackslash\hspace{0pt}}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash\hspace{0pt}}p}
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+\newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+
+% Bibliography
+\usepackage[backend=biber,
+            natbib=true,
+            style=apa,
+            autopunct=true,
+            sorting=nyt,
+            doi=true,
+            isbn=false,
+            url=true,
+            eprint=true,
+            maxbibnames=7,
+            minbibnames=1,
+            mincitenames=1,
+            maxcitenames=3,
+            uniquelist=false,
+            uniquename=false]{biblatex} % Best package currently
+\usepackage{csquotes} % advanced facilities for in-line and display quotations.
+\DeclareLanguageMapping{british}{british-apa}
+
+% Suppress fields from bibliography 
+% (needed to improve transfer workflow from reference managers)
+
+% Ignore before reading
+\DeclareSourcemap{
+  \maps[datatype=bibtex, overwrite]{
+    \map{
+      \step[fieldset=language, null]
+      \step[fieldset=notes, null]
+      \step[fieldset=local-url, null]
+      \step[fieldset=abstract, null]
+      \step[fieldset=month, null]
+      \step[fieldset=groups, null]
+      \step[fieldset=timestamp, null]
+      \step[fieldset=file, null]
+    }
+  }
+}
+
+% Ignore after reading
+% \AtEveryBibitem{\clearlist{abstract}} % clears abstract
+
+% make always shortauthor 
+\makeatletter
+\AtEveryCitekey{\ifnameundef{shortauthor}{}{\def\cbx@apa@ifnamesaved{\@firstoftwo}}}
+\makeatother
+
+% fix problem with et al. spacing
+\DefineBibliographyStrings{british}{andothers={et~al\adddot\@}}
+
+% enable hyperlink of full citation
+
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{#1}}
+
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{%
+    #1%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}}}
+
+\savebibmacro{cite}
+\savebibmacro{textcite}
+
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+    \usebibmacro{cite}}}
+
+\renewbibmacro*{textcite}{%
+  \ifboolexpr{
+    ( not test {\iffieldundef{prenote}} and
+      test {\ifnumequal{\value{citecount}}{1}} )
+    or
+    ( not test {\iffieldundef{postnote}} and
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+  }
+    {\DeclareFieldAlias{textcitehyperref}{noformat}}
+    {}%
+  \printtext[textcitehyperref]{%
+    \restorebibmacro{textcite}%
+    \usebibmacro{textcite}}}
+
+% add bib file
+\addbibresource{bibliography/main.bib}
+\renewcommand*{\bibfont}{\small} % resize reference list fonts
+
+%% Citing with \command[pre][post]{reference}
+%% \autocite{} is the best for (author, year), style-dependent.
+%% \autocite*{} shows only year (but style-dependent).
+%% \textcite{} shows author (year). Best for text body.
+%% \cite{} full
+%% \cite*{} only year
+%% \parencite{} full with ()
+%% \parencite*{} year with ()
+%% \citeauthor*{} author short
+%% \citetitle*{}  title short
+%% \citeurl{} reference link
+
+%% for chapters, use:   
+%%                      \begin{refsection} % bib starts here
+%%                      \chapter{First chapter}
+%%                      \section{Foo}
+%%                      Some text \cite{this} with citations \cite{that}.
+%%                      \printbibliography
+%%                      \end{refsection} % bib ends here
+%% also 
+%% \printbibliography[type=article,title={Articles only}]
+%% or
+%% \printbibliography[keyword={physics},title={Physics-related only}]
+%%
+%% and include in TOC with:
+%% \printbibliography[heading=bibintoc, title={Whole bibliography}]
+%% or as subsections as:
+%% \printbibliography[heading=subbibintoc,type=article,title={Articles only}]
+
+
+% Helpers
+\usepackage{blindtext} % Add place-hold text with \blindtext.
+\usepackage[bottom]{footmisc} % Move footnote to the page bottom.
+\usepackage[printwatermark]{xwatermark}
+\renewcommand\Affilfont{\fontsize{10}{10.8}\itshape}
+
+
+% Hyperlink
+\usepackage{url} % formatting emails, links, directories, etc.
+\usepackage{hyperref} % Create hyperlinks automatically.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkgray,
+    filecolor=darkgray,      
+    urlcolor=darkgray,
+    citecolor=darkgray
+}
+
+\urlstyle{same}
+%\usepackage{subcaption,trimclip}
+\usepackage[noabbrev,nameinlink]{cleveref} 
+\newcommand{\labelphantom}[1]{%
+  \parbox{0pt}{\phantomsubcaption\label{#1}}%
+}
+\microtypecontext{spacing=nonfrench}
+

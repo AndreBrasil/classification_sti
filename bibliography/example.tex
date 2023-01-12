@@ -1,0 +1,83 @@
+\documentclass{report}
+\usepackage[style=authoryear]{biblatex}
+\usepackage{hyperref}
+
+% Just for demo
+\ExecuteBibliographyOptions{maxcitenames=1}
+
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{#1}}
+
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{%
+    #1%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}}}
+
+\savebibmacro{cite}
+\savebibmacro{textcite}
+
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+    \usebibmacro{cite}}}
+
+\renewbibmacro*{textcite}{%
+  \ifboolexpr{
+    ( not test {\iffieldundef{prenote}} and
+      test {\ifnumequal{\value{citecount}}{1}} )
+    or
+    ( not test {\iffieldundef{postnote}} and
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+  }
+    {\DeclareFieldAlias{textcitehyperref}{noformat}}
+    {}%
+  \printtext[textcitehyperref]{%
+    \restorebibmacro{textcite}%
+    \usebibmacro{textcite}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\addbibresource{biblatex-examples.bib}
+\begin{document}
+\null\vfill
+\textbf{Single citations}
+
+Filler text \autocite{aristotle:poetics}. Filler text \parencite{kant:ku} \\
+Filler text \parencite[See][23]{aristotle:poetics}.
+Filler text \parencite[1--10]{kant:ku}. \\
+\textcite{aristotle:poetics} and \textcite{kant:ku}.
+\textcite[e.g.][]{aristotle:poetics} and \textcite[10]{kant:ku}. \\
+Filler text.\footcite[23]{aristotle:poetics} Filler text.\footcite[1--10]{aristotle:rhetoric}
+Filler text.\footnote{\smartcite[10--15]{companion}}
+
+\textbf{Unqualified citation lists}
+
+\textcite{aristotle:poetics,aristotle:rhetoric} \\
+\textcite[e.g.][]{aristotle:poetics,aristotle:rhetoric} \\
+\textcite[10--15]{aristotle:poetics,aristotle:rhetoric} \\
+\textcite[e.g.][10--15]{aristotle:poetics,aristotle:rhetoric} \\
+\parencite[See][for example]{aristotle:poetics,aristotle:rhetoric}
+
+\textbf{Qualified citation lists}
+
+\textcites{aristotle:poetics}{aristotle:rhetoric} \\
+\textcites(See)(){aristotle:poetics}[cf.][]{aristotle:rhetoric} \\
+\textcites(See)()[10]{aristotle:poetics}[10]{aristotle:rhetoric} \\
+\textcites(See)()[10--15]{aristotle:poetics}[cf.][10]{aristotle:rhetoric} \\
+\textcites(See)()[e.g.][10--15]{aristotle:poetics}[cf.][10]{aristotle:rhetoric} \\
+\parencites(See)()[10--15]{aristotle:poetics}[cf.][10]{aristotle:rhetoric}
+
+\textbf{Mix of qualified and unqualified citation lists}
+
+\textcites(See)()[e.g.][]{aristotle:poetics}[10]{bertram,companion} \\
+\textcites[e.g.][]{aristotle:poetics,aristotle:rhetoric}[10]{companion} \\
+\textcites[10]{aristotle:poetics,aristotle:rhetoric}[cf.][]{bertram} \\
+\textcites[15]{aristotle:poetics}[cf.][10]{bertram,companion}
+
+\printbibliography
+\end{document}

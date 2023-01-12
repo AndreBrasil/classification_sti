@@ -1,0 +1,161 @@
+%% GLOSSARY
+
+% \usepackage[acronym, % Activate acronym
+%            nomain,   % Remove main glossary (merge gl and ac)
+%            toc,      % Include in Table of Contents
+%            {glossaries} % Load the package (included in header)
+
+\usepackage{glossaries-extra} % Add glossaries
+\setabbreviationstyle{long-short}
+\setabbreviationstyle[acronym]{long-short}
+\glssetcategoryattribute{acronym}{glossdesc}{title} % Make all caps
+\usepackage{mfirstuc-english}
+\expandafter\MFUnocap\expandafter{\detokenize{and}}
+\expandafter\MFUnocap\expandafter{\detokenize{of}}
+\expandafter\MFUnocap\expandafter{\detokenize{for}}
+\expandafter\MFUnocap\expandafter{\detokenize{the}}
+\glsdisablehyper
+%\makeglossaries % Activate the glossary list
+
+%%Term definitions
+% Acronyms show full name, then reduced
+    % \newacronym{x}{X}{Xxxxx} 
+% Glossary shows short name only
+    % \newglossaryentry{g_x}{name=X, description={Xxxx}} 
+
+%% Inserting glossary entries
+    % \gls{x} % Standard command
+    % \Gls{x} % Capitalize first letter
+    % \glspl{x} % Pluralize term
+    % \Glspl{x} %Capitalize and pluralize term
+
+%% Inserting acronyms
+    % \gls{x} % Automaticaly choose long vs. short version
+    % \glsxtrlong{x} % Display only long version
+    % \glsxtrshort{x} % Display only short version
+    % \glsxtrfull{x} % Display both
+
+%Print the glossary
+    % Styles
+    % \glossarystyle{list}
+    % \glossarystyle{altlist}
+    % \glossarystyle{listgroup}
+    % \glossarystyle{listhypergroup}
+
+\setglossarystyle{alttree}
+
+% spacing
+%\setglossarypreamble[acronym]{\vspace*{-\baselineskip}}
+\setglossarypreamble{\vspace*{-\baselineskip}}
+\glssetwidest{XXXXXXX}
+\setlength{\glsdescwidth}{1\textwidth}
+
+    % \printglossaries % print all
+    % \printglossary [title = Special Terms, toctitle = List of terms] % print glossary only, with details
+    % \clearpage
+    % \printglossary[type=\acronymtype, title = Acronyms, toctitle = Acronyms]
+
+%%%%%%% Start here %%%%%%%
+
+%%%% Acronyms
+
+\newacronym{abc}{ABC}{Brazilian Academy of Sciences}
+\newacronym{abe}{ABE}{Brazilian Education Association}
+\newacronym{apcs}{APCs}{Article Production Charges} 
+\newacronym{asjc}{ASJC}{All Science and Journal Classification}
+\newacronym{bnde}{BNDE}{National Bank for Economic Development}
+\newacronym{capes}{CAPES}{Brazilian Agency for Support and Evaluation of Graduate Education}
+\newacronym{cdi}{CDI}{Commission for Industrial Development}
+\newacronym{cepnpg}{CEPNPG}{Special Committee for Monitoring the National Plan for Graduate Education}
+\newacronym{cfe}{CFE}{Federal Education Council}
+\newacronym{cnpg}{CNPG}{National Council of Graduate Education}
+\newacronym{cnpq}{CNPq}{Brazilian National Council for Scientific and Technological Development}
+\newacronym{confap}{CONFAP}{National Council of State Funding Agencies}
+\newacronym{cwts}{CWTS}{Centre for Science and Technology Studies}
+\newacronym{doaj}{DOAJ}{Directory of Open Access Journals}
+\newacronym{espm}{ESPM}{Higher School of Advertising and Marketing}
+\newacronym{finep}{FINEP}{Funding Authority for Studies and Projects}
+\newacronym{fiocruz}{Fiocruz}{Oswaldo Cruz Foundation}
+\newacronym{foprop}{FOPROP}{National Forum of Pro-Rectors for Research and Graduate Education}
+\newacronym{gdp}{GDP}{Gross domestic product}
+\newacronym{gerd}{GERD}{Gross domestic expenditure on R\&D}
+\newacronym[shortplural = {HEI}]{hei}{HEI}{higher education institution}
+\newacronym{jif}{JIF}{Journal Impact Factor}
+\newacronym{jrc}{JRC}{Journal Citation Reports}
+\newacronym{knaw}{KNAW}{Royal Netherlands Academy of Arts and Sciences}
+\newacronym[sort=latex]{latex}{\LaTeX}{Lamport's \TeX} 
+\newacronym{latindex}{Latindex}{Regional Cooperative Online Information System for Scholarly Journals from Latin America, the Caribbean, Spain and Portugal}
+\newacronym{lu}{LU}{Leiden University} 
+\newacronym{mct}{MCT}{Ministry of Science \& Technology}
+\newacronym{mec}{MEC}{Ministry of Education and Culture}
+\newacronym{nwo}{NWO}{Netherlands Organisation for Scientific Research}
+\newacronym{oecd}{OECD}{Organisation for Economic Co-operation and Development}
+\newacronym{pdi}{PDI}{Institutional Development Plan}
+\newacronym[shortplural = {PNPG}, longplural={National Plans for Graduate Education}]{pnpg}{PNPG}{National Plan for Graduate Education}
+\newacronym[shortplural = {PPG}]{ppg}{PPG}{graduate program}
+\newacronym{ppp}{PPP}{Purchasing power parity}
+\newacronym{pro}{PRO}{Public research organisation}
+\newacronym{rd}{R\&D}{Research and development}
+\newacronym{redalyc}{RedALyC}{Network of Scientific Journals of Latin America and the Caribbean}
+\newacronym{sbpc}{SBPC}{Brazilian Society for the Advancement of Science}
+\newacronym{scielo}{SciELO}{Scientific Electronic Library Online}
+\newacronym{sep}{SEP}{Strategy Evaluation Protocol}
+\newacronym{sjr}{SJR}{SCImago Journal Rank}
+\newacronym{snip}{SNIP}{Source Normalized Impact per Paper}
+\newacronym{snpg}{SNPG}{Brazilian National System of Graduate Education} 
+\newacronym{sosp}{SoSP}{Science of Science Policy}
+\newacronym{st}{S\&T}{Science and technology}
+\newacronym{uffs}{UFFS}{Federal University of Fronteira Sul}
+\newacronym{ufrj}{UFRJ}{Federal University of Rio de Janeiro}
+\newacronym{umr}{UMR}{U-Multirank}
+\newacronym{unb}{UnB}{University of Brasília}
+\newacronym{unesp}{UNESP}{São Paulo State University}
+\newacronym{usp}{USP}{University of São Paulo}
+\newacronym{vsnu}{VSNU}{Association of Universities in the Netherlands}
+\newacronym{wos}{WoS}{Web of Science} 
+
+
+%%%% Glossary
+
+\newglossaryentry{g_ppg}{name=Graduate program, description={In Brazil, it is considered a research program that includes a master's and/or doctoral course. It is usually comparable to a university department in other countries, but a department in Brazil can have multiple research programs (e.g. a Law department with distinct graduate programs in Constitutional and Tax Law).}}
+
+\newglossaryentry{g_wos}{name=Web of Science (WoS), description={Web of Science is a multidisciplinary search engine and also a citation database for scientifc and scholarly literature in all areas of study.}}
+
+\newglossaryentry{scopus}{name=Scopus, description={A comprehensive, expertly curated abstract and citation database with enriched data and linked scholarly literature across a wide variety of disciplines.}} 
+
+\newglossaryentry{g_hei}{name=Higher Education Institution (HEI), description={.}} 
+
+%%%% Commands
+\usepackage{xspace}
+\xspaceaddexceptions{]\}}
+
+\newcommand{\Capes}{\glsxtrlong{capes}\xspace}
+\newcommand{\CAPES}{\glsxtrshort{capes}\xspace}
+\newcommand{\CNPq}{\glsxtrshort{cnpq}\xspace}
+\newcommand{\Confap}{\glsxtrlong{confap}\xspace}
+\newcommand{\CONFAP}{\glsxtrshort{confap}\xspace}
+\newcommand{\Cwts}{\glsxtrlong{cwts}\xspace}
+\newcommand{\CWTS}{\glsxtrshort{cwts}\xspace}
+\newcommand{\FOPROP}{\glsxtrshort{foprop}\xspace}
+\newcommand{\Hei}{\glsxtrlong{hei}\xspace}
+\newcommand{\Heis}{\glsxtrlongpl{hei}\xspace}
+\newcommand{\HEI}{\glsxtrshort{hei}\xspace}
+\newcommand{\latindex}{\glsxtrshort{latindex}\xspace}
+\newcommand{\MEC}{\glsxtrshort{mec}\xspace}
+\newcommand{\OECD}{\glsxtrshort{oecd}\xspace}
+\newcommand{\Pnpg}{\glsxtrlong{pnpg}\xspace}
+\newcommand{\PNPG}{\glsxtrshort{pnpg}\xspace}
+\newcommand{\Ppg}{\glsxtrlong{ppg}\xspace}
+\newcommand{\PPG}{\glsxtrshort{ppg}\xspace}
+\newcommand{\Ppgs}{\glsxtrlongpl{ppg}\xspace}
+\newcommand{\redalyc}{\glsxtrshort{redalyc}\xspace}
+\newcommand{\SBPC}{\glsxtrshort{sbpc}\xspace}
+\newcommand{\scielo}{\glsxtrshort{scielo}\xspace}
+\newcommand{\Sep}{\glsxtrlong{sep}\xspace}
+\newcommand{\SEP}{\glsxtrshort{sep}\xspace}
+\newcommand{\Snpg}{\glsxtrlong{snpg}\xspace}
+\newcommand{\SNPG}{\glsxtrshort{snpg}\xspace}
+\newcommand{\UMR}{\glsxtrshort{umr}\xspace}
+\newcommand{\Umultirank}{\glsxtrlong{umr}\xspace}
+\newcommand{\Wos}{\glsxtrlong{wos}\xspace}
+\newcommand{\WoS}{\glsxtrshort{wos}\xspace}

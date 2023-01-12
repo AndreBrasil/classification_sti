@@ -1,0 +1,52 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=2.5cm]{geometry}
+\input{general/header}
+\input{general/glossary}
+\microtypecontext{spacing=nonfrench}
+
+\title{Rethinking a national classification system of research and graduate education}
+
+\author[1,2]{André Brasil}%{\thanks{Corresponding author, a.l.brasil@cwts.leidenuniv.nl}}
+\affil[1]{\glsxtrfull{cwts}, \glsxtrlong{lu}}
+
+%\date{\today, version 0.1}
+
+\date{\vspace{-1em}}
+%\newwatermark[allpages,fontfamily=\sfdefault,color=gray!10,angle=62,scale=3.5,xpos=-17,ypos=8]{Working Paper}
+%{D\,R\,A\,F\,T}
+% ---
+% Document start
+% ----
+
+\addbibresource{bibliography/main.bib}
+
+\begin{document}
+\clearpage\maketitle
+\thispagestyle{empty}
+
+{\renewcommand{\baselinestretch}{1.2}
+\begin{abstract}
+\vspace{2pt}
+\footnotesize\noindent\input{abstract}
+\end{abstract}
+}
+
+\begin{center}
+\vspace{5pt}\noindent\footnotesize\textit{\textbf{Keywords:} national evaluation systems, research evaluation, 
+policy design, \\evaluation instruments, funding policies.}
+\end{center}
+\newpage
+
+%% Include all records in .bib in references:
+% \nocite{*} % Comment out to show only cited references
+
+\input{content}
+\input{acknowledgements}
+{%
+\setstretch{1.1}
+\renewcommand{\bibfont}{\normalfont\footnotesize}
+\setlength{\biblabelsep}{0pt}
+\raggedright\printbibliography
+}
+
+\end{document}

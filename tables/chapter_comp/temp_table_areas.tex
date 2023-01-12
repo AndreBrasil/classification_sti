@@ -1,0 +1,150 @@
+
+\newpage
+
+\newcommand{\STAB}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+
+{\footnotesize
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\caption{Caption}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llcl@{}}
+\toprule
+                                          & \textbf{Broad area}     & \multicolumn{1}{l}{\textbf{Code}} & \textbf{Evaluation area}                            \\ \midrule
+\multirow{14}{*}{\STAB{\rotatebox[origin=c]{90}{\textbf{Exact Sciences}}}} & Engineering             & 10                                & Engineering I                                       \\
+ &                                  & 12 & Engineering II                                 \\
+ &                                  & 13 & Engineering III                                \\
+ &                                  & 14 & Engineering IV                                 \\ \cmidrule(l){2-4} 
+ & Exact and Earth Sciences         & 03 & Astronomy and physics                          \\
+ &                                  & 04 & Chemistry                                      \\
+ &                                  & 02 & Computer science                               \\
+ &                                  & 05 & Earth sciences                                 \\
+ &                                  & 01 & Mathematics and statistics                     \\ \cmidrule(l){2-4} 
+ & Multidisciplinary                & 48 & Biotechnology                                  \\
+ &                                  & 49 & Environmental sciences                         \\
+ &                                  & 45 & Interdisciplinary                              \\
+ &                                  & 47 & Materials science                              \\
+ &                                  & 46 & Teaching and learning                          \\ \midrule
+\multirow{18}{*}{\STAB{\rotatebox[origin=c]{90}{\textbf{Humanities}}}}     & Applied Social Sciences & 29                                & Architecture, interior and industrial design        \\
+                                          &                         & 27                                & Business and administration, accounting and tourism \\
+ &                                  & 28 & Economics                                      \\
+ &                                  & 31 & Journalism and information                     \\
+ &                                  & 26 & Law                                            \\
+ &                                  & 32 & Social work                                    \\
+ &                                  & 30 & Town planning and demography                   \\ \cmidrule(l){2-4} 
+ & Humanities                       & 35 & Anthropology and archaeology                   \\
+ &                                  & 38 & Education                                      \\
+ &                                  & 36 & Geography                                      \\
+ &                                  & 40 & History                                        \\
+ &                                  & 33 & Philosophy and ethics                          \\
+ &                                  & 39 & Political Science and international relations  \\
+ &                                  & 37 & Psychology                                     \\
+ &                                  & 44 & Religion and theology                          \\
+ &                                  & 34 & Sociology                                      \\ \cmidrule(l){2-4} 
+ & Linguistics, Literature and Arts & 11 & Arts                                           \\
+ &                                  & 41 & Literature and linguistics                     \\ \midrule
+\multirow{17}{*}{\STAB{\rotatebox[origin=c]{90}{\textbf{Life Sciences}}}}  & Agricultural Sciences   & 42                                & Agricultural sciences                               \\
+ &                                  & 25 & Food science and technology                    \\
+ &                                  & 24 & Veterinary medicine                            \\
+ &                                  & 23 & Zootechnics and fisheries                      \\ \cmidrule(l){2-4} 
+ & Biological Sciences              & 07 & Biodiversity                                   \\
+ &                                  & 06 & Biological Sciences I                          \\
+ &                                  & 08 & Biological Sciences II                         \\
+ &                                  & 09 & Biological Sciences III                        \\ \cmidrule(l){2-4} 
+ & Health Sciences                  & 18 & Dental studies                                 \\
+ &                                  & 15 & Medicine I                                     \\
+ &                                  & 16 & Medicine II                                    \\
+ &                                  & 17 & Medicine III                                   \\
+ &                                  & 20 & Nursing                                        \\
+ &                                  & 50 & Nutritional science                            \\
+ &                                  & 19 & Pharmacy                                       \\
+ &                                  & 21 & Physical education, therapy and rehabilitation \\
+ &                                  & 22 & Public health                                  \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+}
+
+
+
+{\footnotesize \renewcommand{\arraystretch}{1.3} \linespread{0.8}
+\begin{xltabular}{\linewidth}{@{}L{2.6cm}L{3cm}X@{}}
+\caption{Stakes of the Brazilian and Dutch evaluation systems}\label{tab:compeval:stakes}\\ 
+
+\toprule
+\textbf{College} & \textbf{Broad area} & \textbf{Evaluation area}  \\\midrule
+
+\endfirsthead
+
+\Cref*{tab:compeval:stakes} Continued\\ 
+\toprule
+\textbf{College} & \textbf{Broad area} & \textbf{Evaluation area}  \\\midrule
+
+\endhead
+
+\bottomrule
+\multicolumn{3}{r@{}}{Continue\ldots}\\ 
+\endfoot
+
+\bottomrule
+\multicolumn{3}{c@{}}{Source: \textcite{Brasil.2022e, Scholten.2018, VSNU.2020}.}
+\endlastfoot
+
+\textbf{Exact Sciences} & Engineering & Engineering I (10), 
+Engineering II (12), 
+Engineering III (13), 
+Engineering IV (14) \\
+ & Exact and Earth Sciences & Astronomy and physics (03), 
+Chemistry (04), 
+Computer science (02), 
+Earth sciences (05), 
+Mathematics and statistics (01) \\
+ & Multidisciplinary & Biotechnology (48), 
+Environmental sciences (49), 
+Interdisciplinary (45), 
+Materials science (47), 
+Teaching and learning (46) \\ \midrule
+\textbf{Humanities} & Applied Social Sciences & Architecture, interior and industrial design (29), 
+Business and administration, accounting and tourism (27), 
+Economics (28), 
+Journalism and information (31), 
+Law (26), 
+Social work (32), 
+Town planning and demography (30) \\
+ & Humanities & Anthropology and archaeology (35), 
+Education (38), 
+Geography (36), 
+History (40), 
+Philosophy and ethics (33), 
+Political Science and international relations (39), 
+Psychology (37), 
+Religion and theology (44), 
+Sociology (34) \\
+ & Linguistics, Literature and Arts & Arts (11), 
+Literature and linguistics (41) \\ \midrule
+\textbf{Life Sciences} & Agricultural Sciences & Agricultural sciences (42), 
+Food science and technology (25), 
+Veterinary medicine (24), 
+Zootechnics and fisheries (23) \\
+ & Biological Sciences & Biodiversity (07), 
+Biological Sciences I (06), 
+Biological Sciences II (08), 
+Biological Sciences III (09) \\
+ & Health Sciences & Dental studies (18), 
+Medicine I (15), 
+Medicine II (16), 
+Medicine III (17), 
+Nursing (20), 
+Nutritional science (50), 
+Pharmacy (19), 
+Physical education, therapy and rehabilitation (21), 
+Public health (22) \\
+
+\end{xltabular}
+}
+
